@@ -1,6 +1,11 @@
 const express = require('express');
 const fetch = require('node-fetch');
+
 const app = express();
+
+app.get('/', (req, res) => {
+  res.send('✅ Proxy is live.');
+});
 
 app.get('/planes', async (req, res) => {
   try {
@@ -14,7 +19,6 @@ app.get('/planes', async (req, res) => {
 });
 
 const port = process.env.PORT || 8080;
-app.get('/', (req, res) => res.send('✅ Proxy is running.'));
 app.listen(port, () => {
-  console.log(`Proxy server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
