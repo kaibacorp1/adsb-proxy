@@ -1,0 +1,7 @@
+app = "adsb-proxy-app"
+
+[env]
+PORT = "8080"
+
+[build]
+  builder = "Dockerfile"
