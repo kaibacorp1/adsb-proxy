@@ -24,13 +24,18 @@ app.get('/planes', async (req, res) => {
       }
     );
 
-    const data = await response.json();
+    const text = await response.text(); // get raw response first
+    console.log('Fetched raw response:', text.slice(0, 500)); // print first 500 chars
+
+    // Try parsing JSON (only if valid)
+    const data = JSON.parse(text);
     res.json(data);
   } catch (error) {
-    console.error('Error fetching plane data:', error);
+    console.error('Error fetching or parsing plane data:', error);
     res.status(500).json({ error: 'Failed to fetch plane data' });
   }
 });
+
 
 
 // Start server
