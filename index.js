@@ -15,7 +15,13 @@ app.get('/', (req, res) => {
 app.get('/planes', async (req, res) => {
   try {
     const response = await fetch(
-      'https://api.adsb.lol/api/states/all?lamin=-90&lamax=90&lomin=-180&lomax=180'
+      'https://api.adsb.lol/api/states/all?lamin=-90&lamax=90&lomin=-180&lomax=180',
+      {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'application/json'
+        }
+      }
     );
 
     const data = await response.json();
@@ -25,6 +31,7 @@ app.get('/planes', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch plane data' });
   }
 });
+
 
 // Start server
 app.listen(port, () => {
