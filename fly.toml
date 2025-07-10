@@ -1,4 +1,3 @@
-app = "adsb-proxy-app"
 
 [env]
 PORT = "8080"
