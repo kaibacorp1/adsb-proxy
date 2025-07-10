@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const app = express();
 
 // Use the port Render gives us
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 // Simple root check
 app.get('/', (req, res) => {
