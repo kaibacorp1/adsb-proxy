@@ -1,6 +1,7 @@
+app = "adsb-proxy" # or leave blank for auto name
+
+[build]
+dockerfile = "Dockerfile"
 
 [env]
 PORT = "8080"
-
-[build]
-  builder = "Dockerfile"
